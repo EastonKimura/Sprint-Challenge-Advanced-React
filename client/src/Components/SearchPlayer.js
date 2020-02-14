@@ -12,7 +12,7 @@ const SearchPlayer = () => {
             value={}
             onChange={}
           />
-          <button onClick={}>fetch dogs</button>
+          <button onClick={}>fetch players</button>
         </form>
     </div>
   )
