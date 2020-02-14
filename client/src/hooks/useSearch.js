@@ -1,14 +1,20 @@
 import { useState } from "react";
 
 
-export const useSearch = (initialValues) => {
+export const useSearch = (initialValues, players) => {
   const [values, setValues] = useState(initialValues);
+  let [searchValue, setSearchValue] = useState([]);
   const handleChanges = e => {
-    setValues({ ...values, [e.target.name]: e.target.value });
+    setValues(e.target.value);
   };
-  const clearForm = e => {
+  const handleSubmit = e => {
     e.preventDefault();
-    setValues(initialValues);
+    const queries = players.filter(player => {
+      return player.name.includes(values);
+    })
+    console.log("this is queries", queries);
+    setSearchValue(searchValue = queries);
+    console.log("this is searchValue", searchValue);
   };
-  return [values, clearForm, handleChanges]
+  return [values, handleChanges, handleSubmit, searchValue]
 }; 
