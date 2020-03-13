@@ -1,6 +1,7 @@
 import React from "react";
 import { useSearch } from "../hooks/useSearch"
 import PlayerCard from "./PlayerCard";
+
 const SearchPlayer = ({ players }) => {
     const [values, handleChanges, handleSubmit, searchValue] = useSearch("", players);
     console.log("this is values", values);
